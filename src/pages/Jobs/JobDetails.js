@@ -65,29 +65,27 @@ const JobDetails = () => {
           navigate('/');
 
         } // Convert milliseconds to seconds
-        if (role === "jobSeeker") {
+        if (role === 'jobSeeker') {
+          try {
+            await axios.post(
+              `https://jobportal-api-tiu2.onrender.com/app/v1/job/${id}/apply-job`,
+              {},
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
 
-          if (role === 'jobSeeker') {
-            try {
-              await axios.post(
-                `https://jobportal-api-tiu2.onrender.com/app/v1/job/${id}/apply-job`,
-                {},
-                {
-                  headers: {
-                    Authorization: `Bearer ${token}`,
-                  },
-                }
-              );
-
-              console.log("Job Applied Successfully!!");
-              setAppliedSuccess(true);// Optionally, you can handle success here (e.g., show a success message)
-            } catch (error) {
-              setError(error.message || 'Error applying for job');
-            }
-          } else {
-            return alert('you are not authorized to apply jobs');
+            console.log("Job Applied Successfully!!");
+            setAppliedSuccess(true);// Optionally, you can handle success here (e.g., show a success message)
+          } catch (error) {
+            setError(error.message || 'Error applying for job');
           }
+        } else {
+          return alert('you are not authorized to apply jobs');
         }
+
       }
     } catch (error) {
       setError(error.message || 'Error applying for job');
