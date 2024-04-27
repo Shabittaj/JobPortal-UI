@@ -7,6 +7,7 @@ import { ProfessionalInfo } from "./ProfessionalInfo";
 import { ProjectsInfo } from './ProjectsInfo';
 import { Skills } from './Skills';
 import { Certifications } from './Certifications';
+import { Resume } from './Resume';
 
 
 function JobSeekerProfile() {
@@ -126,9 +127,9 @@ function JobSeekerProfile() {
                       Certifications
                     </button>
                     <button type="button"
-                      className="mb-1 btn btn-block btn-outline-secondary">
-                      <Link to={`data:${jobSeekerProfile.details.resume.contentType};base64,${jobSeekerProfile.details.resume.data}`}
-                        download={jobSeekerProfile.details.resume.src} className='jobseekerlink'>Download Resume</Link>
+                      className="mb-1 btn btn-block btn-outline-secondary"
+                      onClick={() => handleTab('resume')}>
+                      Update Resume
 
                     </button>
                     <button type="button"
@@ -175,6 +176,11 @@ function JobSeekerProfile() {
                   {tab === 'certifications' &&
                     <Certifications />
                   }
+
+                  {tab === 'resume' &&
+                    <Resume />
+                  }
+
 
                 </div>
               </div>

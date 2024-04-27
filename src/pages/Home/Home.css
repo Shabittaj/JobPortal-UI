@@ -1,60 +1,38 @@
-.home {
-  background: linear-gradient(-225deg, #fffeff 0%, #d7fffe 100%);
+.home{
+  background: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);
   height: 100%;
 }
-.banner {
+.banner{
   display: flex;
   justify-content: space-around;
-  height: 90vh;
-  /* background-color: aqua; */
 }
-/* .image {
-  height: max-content;
-  width: inherit;
-  justify-items: center;
-  padding-right: 100px;
-  padding-left: 10px;
-} */
-
-.image {
-  height: 400px; /* Set a fixed height */
-  /* width: 50em;  */
+.image{
+  height: 420px;
+  width: auto;
+  margin-right: 400px;
+}
+.content{
+  font-size: 1.8rem;
+  padding-top: 50px;
+}
+.title-div{
   padding-left: 100px;
-  padding-right: 100px;
-  max-width: 50%;
-  /* padding: 10px; */
 }
-
-.content {
-  font-size: 1.5rem;
-  padding-top: 20px;
+.title{
+  font-size: 4.5rem;
+  padding-top: 50px;
 }
-.title-div {
-  padding-left: 50px;
-  max-width: 50%;
-}
-.title {
-  font-size: 3.5rem;
-  /* padding-top: 50px; */
-}
-.green {
+.green{
   color: lightseagreen;
-  margin-top: -50px;
-  text-transform: uppercase;
-  font-weight: 500;
 }
 
-.content2 {
+.content2{
   font-size: 1.4rem;
-  cursor: pointer;
-  display: flex;
-  flex-wrap: wrap; /* Allow wrapping to the next line */
-  gap: 5px; /* Add some space between badges */
 }
 .banner-form {
   position: relative;
-  height: 100px;
-  margin-top: 30px;
+  height: 126px;
+  margin-top: 50px;
 }
 .sm-gutters {
   margin-right: -10px;
@@ -62,7 +40,7 @@
 }
 .banner-form .form-group {
   position: relative;
-  width: 600px;
+  max-width: 600px;
   margin-bottom: 20px;
 }
 .banner-form .form-group button {
@@ -70,7 +48,7 @@
   right: 6px;
   top: 6px;
   outline: none;
-  background: lightseagreen;
+  background:lightseagreen;
   color: #fff;
   border-radius: 0px 30px 30px 0px;
   height: 47px;
@@ -88,135 +66,108 @@
 .cat-item {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 45px rgba(0, 0, 0, .08);
   border: 1px solid transparent;
-  transition: 0.5s;
+  transition: .5s;
   align-items: center;
   background-color: white;
 }
 
 .cat-item:hover {
-  border-color: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, .08);
   box-shadow: none;
 }
-.fadeInUp a {
+.fadeInUp a{
   text-decoration: none;
 }
 
-.fadeInUp a h6 {
+.fadeInUp a h6{
   color: black;
 }
 
-.fadeInUp a p {
+.fadeInUp a p{
   color: lightseagreen;
 }
 
-.fadeInUp a i {
+.fadeInUp a i{
   color: lightseagreen;
 }
 
 .about-bg {
-  background-image: -webkit-repeating-radial-gradient(
-    center center,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.2) 1px,
-    transparent 1px,
-    transparent 100%
-  );
-  background-image: -moz-repeating-radial-gradient(
-    center center,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.2) 1px,
-    transparent 1px,
-    transparent 100%
-  );
-  background-image: -ms-repeating-radial-gradient(
-    center center,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.2) 1px,
-    transparent 1px,
-    transparent 100%
-  );
-  background-image: -o-repeating-radial-gradient(
-    center center,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.2) 1px,
-    transparent 1px,
-    transparent 100%
-  );
-  background-image: repeating-radial-gradient(
-    center center,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.2) 1px,
-    transparent 1px,
-    transparent 100%
-  );
+  background-image: -webkit-repeating-radial-gradient(center center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 100%);
+  background-image: -moz-repeating-radial-gradient(center center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 100%);
+  background-image: -ms-repeating-radial-gradient(center center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 100%);
+  background-image: -o-repeating-radial-gradient(center center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 100%);
   background-size: 5px 5px;
 }
 
-.btnn {
+.btnn{
   background-color: lightseagreen;
   color: white;
 }
-.btnn:hover {
+.btnn:hover{
   background-color: rgb(59, 251, 241);
   color: black;
 }
 
-@media screen and (max-width: 1000px) {
-  .title {
+
+@media screen and (max-width:1000px){
+  .title{
     font-size: 3rem;
   }
-  p {
+  p{
     font-size: 1.3rem;
   }
-  .image {
+  .image{
     height: 350px;
     width: auto;
     margin-right: 100px;
   }
 }
 
-@media screen and (max-width: 1200px) {
-  .search-form {
+@media screen and (max-width:1200px){
+  .search-form{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 50%;
   }
-  .search-btn {
+  .search-btn{
     display: grid;
   }
 }
 
-@media screen and (max-width: 800px) {
-  .home {
+
+@media screen and (max-width:800px){
+  .home{
     min-height: 600px;
   }
-  .banner {
+  .banner{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
   }
-  .image {
-    display: none;
+  .image{
+   display: none;
   }
-  .title {
+  .title{
     padding-top: 25px;
     font-size: 3.4rem;
     padding-left: 0;
   }
-  .content {
+  .content{
     padding-top: 15px;
     font-size: 1.2rem;
     padding-left: 0;
   }
-  .title-div {
+  .title-div{
     padding-left: 20px;
   }
-  .content2 {
+  .content2{
     font-size: 1.2rem;
   }
+
 }
