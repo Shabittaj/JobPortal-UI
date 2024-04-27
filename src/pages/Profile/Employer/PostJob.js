@@ -27,7 +27,7 @@ export const PostJob = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:8000/app/v1/job/create-job', {
+            const response = await fetch('https://jobportal-api-tiu2.onrender.com/app/v1/job/create-job', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

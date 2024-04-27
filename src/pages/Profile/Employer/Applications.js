@@ -15,7 +15,7 @@ function Applications() {
     const fetchData = async () => {
         const token = localStorage.getItem('token')
         try {
-            const response = await axios.get(`http://localhost:8000/app/v1/job/${jobId}/applications/`, {
+            const response = await axios.get(`https://jobportal-api-tiu2.onrender.com/app/v1/job/${jobId}/applications/`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

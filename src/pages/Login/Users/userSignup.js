@@ -17,7 +17,7 @@ function UserSignup() {
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:8000/app/v1/auth/register", {
+            const response = await axios.post("https://jobportal-api-tiu2.onrender.com/app/v1/auth/register", {
                 firstName,
                 lastName,
                 email,

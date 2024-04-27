@@ -43,7 +43,7 @@ export const PostedJobs = () => {
     const fetchJobs = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:8000/app/v1/job/get-job', {
+            const response = await fetch('https://jobportal-api-tiu2.onrender.com/app/v1/job/get-job', {
                 method: 'GET',
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -70,7 +70,7 @@ export const PostedJobs = () => {
         try {
             const token = localStorage.getItem('token');
             const jobIdToDelete = jobs[index]._id; // Assuming the job ID is stored in _id property
-            const response = await fetch(`http://localhost:8000/app/v1/job/delete-job/${jobIdToDelete}`, {
+            const response = await fetch(`https://jobportal-api-tiu2.onrender.com/app/v1/job/delete-job/${jobIdToDelete}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -95,7 +95,7 @@ export const PostedJobs = () => {
         try {
             const token = localStorage.getItem('token');
             const jobIdToUpdate = jobs[editIndex]._id;
-            const response = await fetch(`http://localhost:8000/app/v1/job/update-job/${jobIdToUpdate}`, {
+            const response = await fetch(`https://jobportal-api-tiu2.onrender.com/app/v1/job/update-job/${jobIdToUpdate}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

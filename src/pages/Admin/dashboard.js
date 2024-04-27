@@ -70,7 +70,7 @@ const DashboardCards = () => {
                     }
 
                 }
-                const response = await fetch('http://localhost:8000/app/v1/admin/dashboard', {
+                const response = await fetch('https://jobportal-api-tiu2.onrender.com/app/v1/admin/dashboard', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -158,7 +158,7 @@ const AdminSignupForm = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post("http://localhost:8000/app/v1/admin/register", {
+            const response = await axios.post("https://jobportal-api-tiu2.onrender.com/app/v1/admin/register", {
                 firstName,
                 lastName,
                 email,
@@ -281,7 +281,7 @@ const PostJob = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:8000/app/v1/job/create-job', {
+            const response = await fetch('https://jobportal-api-tiu2.onrender.com/app/v1/job/create-job', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -430,7 +430,7 @@ const ManageUsers = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/app/v1/auth');
+                const response = await axios.get('https://jobportal-api-tiu2.onrender.com/app/v1/auth');
                 setUsers(response.data.details); // Access the 'details' array in the response data
                 setLoading(false);
             } catch (error) {
@@ -451,7 +451,7 @@ const ManageUsers = () => {
     const deleteUser = async (userEmail) => {
         const token = localStorage.getItem('token');
         try {
-            await axios.delete(`http://localhost:8000/app/v1/auth/delete-user/${userEmail}`, {
+            await axios.delete(`https://jobportal-api-tiu2.onrender.com/app/v1/auth/delete-user/${userEmail}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

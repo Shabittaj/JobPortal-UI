@@ -14,12 +14,12 @@ function UserLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await axios.post('http://localhost:8000/app/v1/auth/login', { email, password });
+      const result = await axios.post('https://jobportal-api-tiu2.onrender.com/app/v1/auth/login', { email, password });
       const { token, user } = result.data;
 
-       // Store token and user role in local storage
-       localStorage.setItem('token', token);
-       localStorage.setItem('role', user.role);
+      // Store token and user role in local storage
+      localStorage.setItem('token', token);
+      localStorage.setItem('role', user.role);
 
       // Call the login function from your auth context to update the user state
       login(token);

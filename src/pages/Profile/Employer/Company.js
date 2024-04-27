@@ -31,7 +31,7 @@ export const Company = () => {
     const fetchCompanyDetails = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:8000/app/v1/profile/details', {
+            const response = await fetch('https://jobportal-api-tiu2.onrender.com/app/v1/profile/details', {
                 method: 'GET',
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -57,7 +57,7 @@ export const Company = () => {
     const handleSave = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:8000/app/v1/profile/update-details', {
+            const response = await fetch('https://jobportal-api-tiu2.onrender.com/app/v1/profile/update-details', {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

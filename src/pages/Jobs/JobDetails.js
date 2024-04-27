@@ -18,7 +18,7 @@ const JobDetails = () => {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:8000/app/v1/job/${id}`, {
+        const response = await axios.get(`https://jobportal-api-tiu2.onrender.com/app/v1/job/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -72,7 +72,7 @@ const JobDetails = () => {
 
       }
       await axios.post(
-        `http://localhost:8000/app/v1/job/${id}/apply-job`,
+        `https://jobportal-api-tiu2.onrender.com/app/v1/job/${id}/apply-job`,
         {},
         {
           headers: {

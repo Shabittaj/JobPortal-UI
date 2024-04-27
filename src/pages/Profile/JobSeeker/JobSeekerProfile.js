@@ -39,7 +39,7 @@ function JobSeekerProfile() {
           }
         }
 
-        const response = await fetch('http://localhost:8000/app/v1/profile/details', {
+        const response = await fetch('https://jobportal-api-tiu2.onrender.com/app/v1/profile/details', {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,
