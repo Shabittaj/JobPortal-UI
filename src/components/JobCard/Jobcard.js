@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { Link } from "react-router-dom";
 import moment from "moment";
 
@@ -9,29 +9,26 @@ const Jobcard = ({ job }) => {
 
   return (
     <Link to={`/jobdetails/${_id}`} className="job-card-link">
-      <div className="job-item p-4 mb-4 shadow rounded">
+      <div className="job-item p-4 mb-4">
         <div className="row g-4">
           <div className="col-sm-12 col-md-8 d-flex align-items-center">
             <img
               className="flex-shrink-0 img-fluid border rounded"
               src={companyLogoUrl}
               alt="Company Logo"
-              style={{ width: "80px", height: "80px" }}
+              style={{ width: '80px', height: '80px' }}
             />
             <div className="text-start ps-4">
               <h5 className="mb-3">{title}</h5>
               <span className="text-truncate me-3">
-                <i className="fa fa-map-marker-alt text-primary me-2"></i>{" "}
-                {jobLocation}
+                <i className="fa fa-map-marker-alt text-primary me-2"></i> {jobLocation}
               </span>
               <span className="text-truncate me-3">
-                <i className="far fa-clock text-primary me-2"></i>
-                {jobType}
+                <i className="far fa-clock text-primary me-2"></i>{jobType}
               </span>
               {/* Displaying a static salary range for demonstration */}
               <span className="text-truncate me-0">
-                <i className="far fa-money-bill-alt text-primary me-2"></i>
-                {job?.salary?.min} - {job?.salary?.max}
+                <i className="far fa-money-bill-alt text-primary me-2"></i>{job?.salary?.min} - {job?.salary?.max}
               </span>
             </div>
           </div>
@@ -42,22 +39,19 @@ const Jobcard = ({ job }) => {
                 <i className="far fa-heart text-primary"></i>
               </button>
               {/* Apply Now button redirects to the job detail page */}
-              <Link
-                className="btn btn-outline-primary"
-                to={`/jobdetails/${_id}`}
-              >
+              <Link className="btn btn-primary" to={`/jobdetails/${_id}`}>
                 Apply Now
               </Link>
             </div>
             <small className="text-truncate">
               <i className="far fa-calendar-alt text-primary me-2"></i>
-              Posted: {moment(createdAt).fromNow()}
+              Date Line: {moment(createdAt).fromNow()}
             </small>
           </div>
         </div>
       </div>
     </Link>
   );
-};
+}
 
 export default Jobcard;
