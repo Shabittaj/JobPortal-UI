@@ -80,7 +80,12 @@ const JobDetails = () => {
             console.log("Job Applied Successfully!!");
             setAppliedSuccess(true);// Optionally, you can handle success here (e.g., show a success message)
           } catch (error) {
-            setError(error.message || 'Error applying for job');
+            if (error.response && error.response.status === 400 && error.response.data.message === "You have already applied to this job") {
+              // Handle the specific error message here
+              alert("You have already applied to this job");
+            } else {
+              setError(error.message || 'Error applying for job');
+            }
           }
         } else {
           return alert('you are not authorized to apply jobs');
