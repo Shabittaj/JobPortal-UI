@@ -1,6 +1,7 @@
 .jobs {
-  background: linear-gradient(-225deg, #fffeff 0%, #d7fffe 100%);
+  background: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);
 }
+
 .dropdown-menu {
   border-top: 4px solid #6dbe45;
 }
@@ -73,22 +74,24 @@ img {
 p {
   font-size: 15px;
 }
+
 .job-item {
   border: 1px solid transparent;
   border-radius: 2px;
-  box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
-  transition: 0.5s;
+  box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+  transition: .5s;
   background-color: white;
 }
 
 .job-item:hover {
-  border-color: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, .08);
   box-shadow: none;
 }
+
 .page-header {
   height: 350px;
   background-size: cover;
-  background: url("../../../public/img/home-banner.jpg") center top;
+  background: url('../../../public/img/home-banner.jpg') center top;
 }
 
 .page-header .overlay {
@@ -129,12 +132,12 @@ p {
 
 .form-group.select:before {
   content: "";
-  height: 9px;
+  height: 7px;
   width: 7px;
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
-  top: 21px;
-  right: 20px;
+  top: 14px;
+  right: 14px;
   position: absolute;
   transform: rotate(45deg);
 }
@@ -201,12 +204,12 @@ p {
 
 .page-header .form-group.select:before {
   content: "";
-  height: 9px;
+  height: 7px;
   width: 7px;
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
-  top: 21px;
-  right: 20px;
+  top: 14px;
+  right: 14px;
   position: absolute;
   transform: rotate(45deg);
 }
@@ -215,4 +218,10 @@ p {
   background: rgba(0, 0, 0, 0.7);
   height: 100%;
   padding: 100px 0px;
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    display: none;
+  }
 }

@@ -1,29 +1,25 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import "./Jobs.css";
-import Jobcard from "../../components/JobCard/Jobcard";
-import { jwtDecode } from "jwt-decode";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import './Jobs.css';
+import Jobcard from '../../components/JobCard/Jobcard';
+import { jwtDecode } from 'jwt-decode';
 
 function Jobs() {
   const [jobs, setJobs] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const location = useLocation();
-  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const query = params.get("searchQuery");
-    setSearchQuery(query || "");
-    fetchData(query);
-  }, [location.search]); // Run effect whenever location.search changes
+    fetchData();
+  }, [searchQuery]); // Run effect whenever searchQuery changes
 
-  const fetchData = async (query) => {
+  const navigate = useNavigate();
+  const fetchData = async () => {
     try {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem('token');
       if (!token) {
         // Token is not present, redirect to login page
-        navigate("/");
+        navigate('/');
       } else {
         // Token is present, but may be expired, you can check it here if needed
         // You can decode the token to get the expiration time and compare it with the current time
@@ -37,56 +33,48 @@ function Jobs() {
 
         if (expirationTime < currentTime) {
           // Token is expired, redirect to login page
-          alert("Token has expired. Please log in again.");
-          navigate("/");
+          alert('Token has expired. Please log in again.')
+          navigate('/');
+
         } // Convert milliseconds to seconds
       }
-      const response = await axios.get(
-        `http://localhost:8000/app/v1/job/view-all-jobs${
-          query ? `?search=${query}` : "" // Append query string only if query exists
-        }`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      console.log("API Response:", response.data.jobs);
+      const response = await axios.get(`https://job-portal-backend-u0t7.onrender.com/app/v1/job/view-all-jobs?search=${searchQuery}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log('API Response:', response.data.jobs);
       setJobs(response.data.jobs);
     } catch (error) {
-      console.error("Error fetching job details:", error.message);
+      console.error('Error fetching job details:', error.message);
       // Handle error
     }
   };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    fetchData(searchQuery);
-  };
-
-  const handleInputChange = (e) => {
-    setSearchQuery(e.target.value); // Update searchQuery state as input value changes
+    fetchData();
   };
 
   return (
     <>
-      <div className="jobs">
+      <div className='jobs'>
         <div className="page-header">
           <div className="overlay">
             <div className="container">
               <h2>Search for a Job</h2>
-              <div className="row sm-gutters justify-content-center">
-                <div className="col-sm-6">
+              <div className="row sm-gutters">
+                <div className="col-sm-12">
                   <form onSubmit={handleSearchSubmit}>
-                    <div className="form-group mt-2">
+                    <div className="form-group">
                       <input
                         type="text"
                         name="title"
-                        placeholder="Job Title / Skills / Keywords"
-                        className="form-control selectJobTitle"
+                        placeholder="Job title, skills, keywords etc..."
+                        className="form-control"
                         autoComplete="off"
                         value={searchQuery}
-                        onChange={handleInputChange}
+                        onChange={(e) => setSearchQuery(e.target.value)}
                       />
                       <button type="submit" className="search-button">
                         <i className="fa fa-search"></i>
@@ -95,14 +83,10 @@ function Jobs() {
                   </form>
                 </div>
               </div>
-              <div className="row sm-gutters mt-3 justify-content-center">
-                <div className="col-sm-3">
+              <div className="row sm-gutters mt-3">
+                <div className="col-sm-6">
                   <div className="form-group select">
-                    <select
-                      name="industry"
-                      placeholder="Industry"
-                      className="form-control"
-                    >
+                    <select name="industry" placeholder="Industry" className="form-control">
                       <option>Select Location </option>
                       <option>Chennai</option>
                       <option>Madurai</option>
@@ -115,13 +99,9 @@ function Jobs() {
                     </select>
                   </div>
                 </div>
-                <div className="col-sm-3">
+                <div className="col-sm-6">
                   <div className="form-group select">
-                    <select
-                      name="industry"
-                      placeholder="Industry"
-                      className="form-control"
-                    >
+                    <select name="industry" placeholder="Industry" className="form-control">
                       <option>Category</option>
                       <option>Information Technology</option>
                       <option>Marketing</option>
@@ -135,7 +115,8 @@ function Jobs() {
           </div>
         </div>
 
-        <div className="container shadow-md rounded mt-5">
+        <div className="container mt-5">
+          <h1 className="text-center greentext mb-5 wow fadeInUp" data-wow-delay="0.1s">Most Popular Jobs</h1>
           <div className="row">
             <div className="col-sm-3">
               <div className="sidebar">
@@ -147,13 +128,16 @@ function Jobs() {
                       Fresher<span>40</span>
                     </li>
                     <li>
-                      <input type="checkbox" />1 - 3 years <span>24</span>
+                      <input type="checkbox" />
+                      1 - 3 years <span>24</span>
                     </li>
                     <li>
-                      <input type="checkbox" />3 - 5 years <span>30</span>
+                      <input type="checkbox" />
+                      3 - 5 years <span>30</span>
                     </li>
                     <li>
-                      <input type="checkbox" />5 -10 years <span>15</span>
+                      <input type="checkbox" />
+                      5 -10 years <span>15</span>
                     </li>
                     <li>
                       <input type="checkbox" />
@@ -230,10 +214,7 @@ function Jobs() {
             </div>
 
             <div className="col-sm-9">
-              <div
-                className="tab-class text-center wow fadeInUp"
-                data-wow-delay="0.3s"
-              >
+              <div className="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
                 {Array.isArray(jobs) ? (
                   jobs.map((job, index) => (
                     <Link to={`/jobs/${job._id}`} key={index}>
@@ -243,12 +224,7 @@ function Jobs() {
                 ) : (
                   <p>No jobs available</p>
                 )}
-                <a
-                  className="btn btn-outline-primary py-2 px-3 mb-3"
-                  href="/jobs"
-                >
-                  Browse More Jobs
-                </a>
+                <a className="btn greenbtn py-3 px-5 mb-5" href="">Browse More Jobs</a>
               </div>
             </div>
           </div>
