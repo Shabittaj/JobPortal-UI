@@ -38,7 +38,7 @@ function Jobs() {
 
         } // Convert milliseconds to seconds
       }
-      const response = await axios.get(`https://job-portal-backend-u0t7.onrender.com/app/v1/job/view-all-jobs?search=${searchQuery}`, {
+      const response = await axios.get(`https://jobportal-api-tiu2.onrender.com/app/v1/job/view-all-jobs?search=${searchQuery}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
